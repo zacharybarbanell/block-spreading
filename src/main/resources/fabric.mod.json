@@ -3,19 +3,19 @@
 	"id": "blockspreading",
 	"version": "${version}",
 	"name": "Block Spreading",
-	"description": "TODO",
+	"description": "This mod makes certain blocks overtake others slowly over time.  The blocks that spread are those in #blockspreading:spreads, and the blocks that can be overtaken are in #blockspreading:substrates.  By default the only block that spreads is netherrack, and it can spread into ordinary overworld stones.",
 	"authors": [
 		"Zachary Barbanell"
 	],
 	"contact": {
 		"sources": "https://github.com/zacharybarbanell/block-spreading"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/blockspreading/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.zacharybarbanell.blockspreading.ExampleMod"
+			"com.zacharybarbanell.blockspreading.BlockSpreading"
 		]
 	},
 	"mixins": [

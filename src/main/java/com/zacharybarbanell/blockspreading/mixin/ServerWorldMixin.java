@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
-import com.zacharybarbanell.blockspreading.ExampleMod;
+import com.zacharybarbanell.blockspreading.BlockSpreading;
 
 @Mixin(ServerWorld.class)
 public class ServerWorldMixin {
@@ -25,14 +25,12 @@ public class ServerWorldMixin {
 	private void onRandomTick(WorldChunk chunk, int randomTickSpeed, CallbackInfo ci, ChunkPos chunkPos, boolean bl, int i,
 			int j, Profiler profiler, ChunkSection chunkSections[], int m, ChunkSection chunkSection, int k, int n,
 			int l, BlockPos blockPos3, BlockState blockState4) {
-		if (blockState4.isIn(ExampleMod.SPREADS)) {
+		if (blockState4.isIn(BlockSpreading.SPREADS)) {
 			World world = chunk.getWorld();
 			Random random = world.getRandom();
-			for (int x = 0; x < 3; x++) {
-				BlockPos target = blockPos3.add(random.nextInt(3) - 1, random.nextInt(3) - 1, random.nextInt(3) - 1);
-				if (world.getBlockState(target).isIn(ExampleMod.SUBSTRATES)) {
-					world.setBlockState(target, blockState4);
-				}
+			BlockPos target = blockPos3.add(random.nextInt(3) - 1, random.nextInt(3) - 1, random.nextInt(3) - 1);
+			if (world.getBlockState(target).isIn(BlockSpreading.SUBSTRATES)) {
+				world.setBlockState(target, blockState4);
 			}
 		}
 	}

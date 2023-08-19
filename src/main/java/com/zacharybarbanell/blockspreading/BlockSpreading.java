@@ -9,9 +9,11 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ExampleMod implements ModInitializer {
-	public static final TagKey<Block> SPREADS = TagKey.of(RegistryKeys.BLOCK, Identifier.of("blockspreading", "spreads"));
-	public static final TagKey<Block> SUBSTRATES = TagKey.of(RegistryKeys.BLOCK, Identifier.of("blockspreading", "substrates"));
+public class BlockSpreading implements ModInitializer {
+	public static final String MOD_ID = "blockspreading";
+
+	public static final TagKey<Block> SPREADS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(MOD_ID, "spreads"));
+	public static final TagKey<Block> SUBSTRATES = TagKey.of(RegistryKeys.BLOCK, Identifier.of(MOD_ID, "substrates"));
 
 	@Override
 	public void onInitialize() {
